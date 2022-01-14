@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: path-templating-demo
+deploy:
+  kustomize:
+    paths:
+      - "k8s/generated/{{.NAMESPACE}}"
+    hooks:
+      before:
+        - host:
+            command: ["./scripts/pre-deploy"]

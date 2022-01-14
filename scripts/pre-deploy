@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p k8s/generated/$NAMESPACE
+cp -r k8s/template/* k8s/generated/$NAMESPACE
+sed -i "s/NAMESPACE/$NAMESPACE/g" k8s/generated/$NAMESPACE/*
